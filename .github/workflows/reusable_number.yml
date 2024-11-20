@@ -9,7 +9,7 @@ inputs:
 on:
   workflow_call:
 
-runs:
+jobs:
   workflow:
     runs-on: ubuntu-latest
     steps:
