@@ -1,0 +1,41 @@
+name: number
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: |
+          echo "Val1=1" >> $GITHUB_ENV
+          echo "Val2=${{ 1 }}" >> $GITHUB_ENV
+
+      - name: print
+        run: |
+          echo ${{ env.Val1 }}
+          echo ${{ env.Val2 }}
+
+      - name: verify Val1
+        run: |
+          if [ ${{ env.Val1 }} -eq 1 ]; then
+            echo "Val1 is number"
+          else
+            echo "Val1 is not number"
+          fi
+
+      - name: verify Val2
+        run: |
+          if [ ${{ env.Val2 }} -eq 1 ]; then
+            echo "Val2 is number"
+          else
+            echo "Val2 is not number"
+          fi
+
+      - name: action
+        uses: ./.github/actions/number
+        with:
+          val: ${{ env.Val1 }}

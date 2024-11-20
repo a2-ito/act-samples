@@ -1,0 +1,14 @@
+name: number
+
+inputs:
+  val:
+    required: true
+    type: number
+    default: 1
+
+runs:
+  using: "composite"
+  steps:
+    - name: echo
+      run: |
+        echo ${{ inputs.val }}
