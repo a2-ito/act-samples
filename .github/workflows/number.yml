@@ -55,5 +55,5 @@ jobs:
     needs: init
     uses: ./.github/workflows/reusable_number.yml
     with:
-      val: ${{ frontJSON(needs.init.outputs.VAL) }}
+      val: ${{ fromJSON(needs.init.outputs.VAL) }}
 
