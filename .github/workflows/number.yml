@@ -13,9 +13,9 @@ jobs:
     - name: Initialize env values
       id: env
       run: |
-        echo "VAL=2" >> $GITHUB_OUTPUT
+        echo "VAL=${{ 2 }}" >> $GITHUB_OUTPUT
  
-  workflow:
+  main:
     needs: init
     runs-on: ubuntu-latest
     steps:
