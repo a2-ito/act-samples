@@ -1,13 +1,12 @@
 name: reusable_number
 
-inputs:
-  val:
-    required: true
-    type: number
-    default: 1
-
 on:
   workflow_call:
+    inputs:
+      val:
+        required: true
+        type: number
+        default: 1
 
 jobs:
   workflow:
