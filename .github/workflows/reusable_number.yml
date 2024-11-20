@@ -1,0 +1,15 @@
+name: reusable_number
+
+inputs:
+  val:
+    required: true
+    type: number
+    default: 1
+
+runs:
+  workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: |
+          echo ${{ inputs.val }}

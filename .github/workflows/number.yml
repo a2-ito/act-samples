@@ -5,6 +5,16 @@ on:
 
 jobs:
 
+  init:
+    runs-on: ubuntu-latest
+    outputs:
+      VAL: ${{ steps.env.outputs.VAL }}
+    steps:
+    - name: Initialize env values
+      id: env
+      run: |
+        echo "VAL=2" >> $GITHUB_OUTPUT
+ 
   workflow:
     runs-on: ubuntu-latest
     steps:
@@ -39,3 +49,10 @@ jobs:
         uses: ./.github/actions/number
         with:
           val: ${{ env.Val1 }}
+
+  number:
+    needs: init
+    uses: ./.github/workflows/reusable_number.yml
+    with:
+      val: ${{ needs.init.outputs.VAL }}
+
