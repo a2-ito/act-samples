@@ -16,6 +16,7 @@ jobs:
         echo "VAL=2" >> $GITHUB_OUTPUT
  
   workflow:
+    needs: init
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -54,6 +55,5 @@ jobs:
     needs: init
     uses: ./.github/workflows/reusable_number.yml
     with:
-      val: '2'
-      # val: ${{ needs.init.outputs.VAL }}
+      val: ${{ needs.init.outputs.VAL }}
 
