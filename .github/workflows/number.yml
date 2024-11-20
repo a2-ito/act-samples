@@ -54,5 +54,6 @@ jobs:
     needs: init
     uses: ./.github/workflows/reusable_number.yml
     with:
-      val: ${{ needs.init.outputs.VAL }}
+      val: '2'
+      # val: ${{ needs.init.outputs.VAL }}
 
