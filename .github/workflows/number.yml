@@ -13,7 +13,7 @@ jobs:
     - name: Initialize env values
       id: env
       run: |
-        echo "VAL=${{ 2 }}" >> $GITHUB_OUTPUT
+        echo "VAL=2" >> $GITHUB_OUTPUT
  
   main:
     needs: init
@@ -55,5 +55,5 @@ jobs:
     needs: init
     uses: ./.github/workflows/reusable_number.yml
     with:
-      val: ${{ needs.init.outputs.VAL }}
+      val: ${{ frontJSON(needs.init.outputs.VAL) }}
 
