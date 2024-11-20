@@ -6,6 +6,9 @@ inputs:
     type: number
     default: 1
 
+on:
+  workflow_call:
+
 runs:
   workflow:
     runs-on: ubuntu-latest
