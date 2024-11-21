@@ -3,12 +3,19 @@ name: reusable_boolean
 on:
   workflow_call:
     inputs:
-      val:
+      str:
         required: true
         type: string
+      bool:
+        required: true
+        type: boolean
   workflow_dispatch:
     inputs:
-      val:
+      str:
+        required: true
+        type: string
+        default: 'true'
+      bool:
         required: true
         type: boolean
         default: true
@@ -19,14 +26,25 @@ jobs:
     steps:
       - name: echo1
         run: |
-          echo ${{ inputs.val }}
+          echo ${{ inputs.str }}
+          echo ${{ inputs.bool }}
 
       - name: echo2
-        if: ${{ inputs.val == 'true' }}
+        if: ${{ inputs.str == 'true' }}
         run: |
           echo "true!"
 
       - name: echo3
-        if: ${{ inputs.val }}
+        if: ${{ inputs.str }}
         run: |
           echo "true!!"
+
+      - name: echo4
+        if: ${{ inputs.bool == true }}
+        run: |
+          echo "true!!!"
+
+      - name: echo5
+        if: ${{ inputs.bool }}
+        run: |
+          echo "true!!!!"

@@ -8,9 +8,11 @@ jobs:
   workflow1:
     uses: ./.github/workflows/reusable_boolean.yml
     with:
-      val: 'true'
+      str: 'true'
+      bool: true
 
   workflow2:
     uses: ./.github/workflows/reusable_boolean.yml
     with:
-      val: 'false'
+      str: 'false'
+      bool: false
