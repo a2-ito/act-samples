@@ -1,0 +1,32 @@
+name: reusable_boolean
+
+on:
+  workflow_call:
+    inputs:
+      val:
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      val:
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo1
+        run: |
+          echo ${{ inputs.val }}
+
+      - name: echo2
+        if: ${{ inputs.val == 'true' }}
+        run: |
+          echo "true!"
+
+      - name: echo3
+        if: ${{ inputs.val }}
+        run: |
+          echo "true!!"

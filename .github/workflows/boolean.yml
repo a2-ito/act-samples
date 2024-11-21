@@ -1,0 +1,11 @@
+name: boolean
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  workflow:
+    uses: ./.github/workflows/reusable_boolean.yml
+    with:
+      val: 'true'
