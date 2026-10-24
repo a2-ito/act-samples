@@ -14,7 +14,7 @@ on:
       str:
         required: true
         type: string
-        default: 'true'
+        default: "true"
       bool:
         required: true
         type: boolean

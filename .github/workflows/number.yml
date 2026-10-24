@@ -4,17 +4,16 @@ on:
   workflow_dispatch:
 
 jobs:
-
   init:
     runs-on: ubuntu-latest
     outputs:
       VAL: ${{ steps.env.outputs.VAL }}
     steps:
-    - name: Initialize env values
-      id: env
-      run: |
-        echo "VAL=2" >> $GITHUB_OUTPUT
- 
+      - name: Initialize env values
+        id: env
+        run: |
+          echo "VAL=2" >> $GITHUB_OUTPUT
+
   main:
     needs: init
     runs-on: ubuntu-latest
@@ -56,4 +55,3 @@ jobs:
     uses: ./.github/workflows/reusable_number.yml
     with:
       val: ${{ fromJSON(needs.init.outputs.VAL) }}
-
