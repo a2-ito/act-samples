@@ -1,0 +1,12 @@
+# 動きを試すためのワークフローで、わざと型の違う入力や存在しないジョブを使っているものがある。
+# 直すと試したかったことが変わるので、指摘の出るワークフローは actionlint の対象から外す
+paths:
+  .github/workflows/boolean.yml:
+    ignore:
+      - ".+"
+  .github/workflows/number.yml:
+    ignore:
+      - ".+"
+  .github/workflows/reusable_number.yml:
+    ignore:
+      - ".+"
